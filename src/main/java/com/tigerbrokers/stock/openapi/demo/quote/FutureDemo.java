@@ -24,9 +24,9 @@ import java.util.Arrays;
 import java.util.List;
 import org.junit.Test;
 
-import static com.tigerbrokers.stock.openapi.demo.DemoConstants.serverUrl;
-import static com.tigerbrokers.stock.openapi.demo.DemoConstants.tigerId;
-import static com.tigerbrokers.stock.openapi.demo.DemoConstants.yourPrivateKey;
+import static com.tigerbrokers.stock.openapi.demo.Config.serverUrl;
+import static com.tigerbrokers.stock.openapi.demo.Config.tigerId;
+import static com.tigerbrokers.stock.openapi.demo.Config.yourPrivateKey;
 
 /**
  * Description:
@@ -37,37 +37,37 @@ public class FutureDemo {
   private static TigerHttpClient client = new TigerHttpClient(serverUrl, tigerId, yourPrivateKey);
 
   @Test
-  public void get_future_exchange() {
+  public void getFutureExchange() {
     FutureExchangeResponse response = client.execute(FutureExchangeRequest.newRequest(SecType.FUT.name()));
     System.out.println(Arrays.toString(response.getFutureExchangeItems().toArray()));
   }
 
   @Test
-  public void get_future_continuous_contracts() {
+  public void getFutureContinuousContracts() {
     FutureContractResponse cl = client.execute(FutureContinuousContractRequest.newRequest("ES"));
     System.out.println(cl.getFutureContractItem());
   }
 
   @Test
-  public void get_future_contract_by_contract_code() {
+  public void getFutureContractByContractCode() {
     FutureContractResponse response = client.execute(FutureContractByConCodeRequest.newRequest("CL1902"));
     System.out.println(response.getFutureContractItem());
   }
 
   @Test
-  public void get_future_contract_by_exchange_code() {
+  public void getFutureContractByExchangeCode() {
     FutureBatchContractResponse response = client.execute(FutureContractByExchCodeRequest.newRequest("CME"));
     System.out.println(response.getFutureContractItems());
   }
 
   @Test
-  public void get_future_current_contract() {
+  public void getFutureCurrentContract() {
     FutureContractResponse response = client.execute(FutureCurrentContractRequest.newRequest("CL"));
     System.out.println(response.getFutureContractItem());
   }
 
   @Test
-  public void get_future_kline() {
+  public void getFutureKline() {
     List<String> contractCodes = new ArrayList<>();
     contractCodes.add("CL1902");
 
@@ -78,7 +78,7 @@ public class FutureDemo {
   }
 
   @Test
-  public void get_future_real_time_quote() {
+  public void getFutureRealtimeQuote() {
     List<String> contractCodes = new ArrayList<>();
     contractCodes.add("CL1902");
 
@@ -87,7 +87,7 @@ public class FutureDemo {
   }
 
   @Test
-  public void get_future_tick() {
+  public void getFutureTick() {
     List<String> contractCodes = new ArrayList<>();
     contractCodes.add("CL1902");
 
@@ -96,7 +96,7 @@ public class FutureDemo {
   }
 
   @Test
-  public void get_future_trading_date() {
+  public void getFutureTradingDate() {
     FutureTradingDateResponse response =
         client.execute(FutureTradingDateRequest.newRequest("CL1902", System.currentTimeMillis()));
     System.out.println(response.getFutureTradingDateItem());

@@ -20,9 +20,9 @@ import java.util.Arrays;
 import java.util.List;
 import org.junit.Test;
 
-import static com.tigerbrokers.stock.openapi.demo.DemoConstants.serverUrl;
-import static com.tigerbrokers.stock.openapi.demo.DemoConstants.tigerId;
-import static com.tigerbrokers.stock.openapi.demo.DemoConstants.yourPrivateKey;
+import static com.tigerbrokers.stock.openapi.demo.Config.serverUrl;
+import static com.tigerbrokers.stock.openapi.demo.Config.tigerId;
+import static com.tigerbrokers.stock.openapi.demo.Config.yourPrivateKey;
 
 /**
  * Description:
@@ -33,7 +33,7 @@ public class OptionDemo {
   private static TigerHttpClient client = new TigerHttpClient(serverUrl, tigerId, yourPrivateKey);
 
   @Test
-  public void option_expiration() {
+  public void getOptionExpiration() {
     ApiLogger.setDebugEnabled(true);
     List<String> symbols = new ArrayList<>();
     symbols.add("AAPL");
@@ -46,7 +46,7 @@ public class OptionDemo {
   }
 
   @Test
-  public void option_brief() {
+  public void getOptionBrief() {
     OptionCommonModel model = new OptionCommonModel();
     model.setSymbol("AAPL");
     model.setRight("CALL");
@@ -61,7 +61,7 @@ public class OptionDemo {
   }
 
   @Test
-  public void option_chain() {
+  public void getOptionChain() {
     OptionChainModel model = new OptionChainModel();
     model.setSymbol("AAPL");
     model.setExpiry("2019-01-11");
@@ -75,7 +75,7 @@ public class OptionDemo {
   }
 
   @Test
-  public void option_kline() {
+  public void getOptionKline() {
     OptionKlineModel model = new OptionKlineModel();
     model.setSymbol("BABA");
     model.setRight("CALL");
@@ -93,7 +93,7 @@ public class OptionDemo {
   }
 
   @Test
-  public void option_trade_tick() {
+  public void getOptionTradeTick() {
     OptionCommonModel model = new OptionCommonModel();
     model.setSymbol("AAPL");
     model.setRight("CALL");

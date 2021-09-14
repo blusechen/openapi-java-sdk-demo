@@ -13,9 +13,9 @@ import java.util.ArrayList;
 import java.util.List;
 import org.junit.Test;
 
-import static com.tigerbrokers.stock.openapi.demo.DemoConstants.serverUrl;
-import static com.tigerbrokers.stock.openapi.demo.DemoConstants.tigerId;
-import static com.tigerbrokers.stock.openapi.demo.DemoConstants.yourPrivateKey;
+import static com.tigerbrokers.stock.openapi.demo.Config.serverUrl;
+import static com.tigerbrokers.stock.openapi.demo.Config.tigerId;
+import static com.tigerbrokers.stock.openapi.demo.Config.yourPrivateKey;
 
 /**
  * Description:
@@ -26,7 +26,7 @@ public class QuoteDemo {
   private static TigerHttpClient client = new TigerHttpClient(serverUrl, tigerId, yourPrivateKey);
 
   @Test
-  public void market_state() {
+  public void getMarketState() {
     TigerHttpRequest request = new TigerHttpRequest(ApiServiceType.MARKET_STATE);
     String bizContent = QuoteParamBuilder.instance()
         .market(Market.US)
@@ -38,7 +38,7 @@ public class QuoteDemo {
   }
 
   @Test
-  public void all_symbols() {
+  public void getAllSymbols() {
     TigerHttpRequest request = new TigerHttpRequest(ApiServiceType.ALL_SYMBOLS);
 
     String bizContent = QuoteParamBuilder.instance()
@@ -51,7 +51,7 @@ public class QuoteDemo {
   }
 
   @Test
-  public void all_symbol_names() {
+  public void getAllSymbolNames() {
     TigerHttpRequest request = new TigerHttpRequest(ApiServiceType.ALL_SYMBOL_NAMES);
 
     String bizContent = QuoteParamBuilder.instance()
@@ -65,7 +65,7 @@ public class QuoteDemo {
   }
 
   @Test
-  public void brief() {
+  public void getBrief() {
     TigerHttpRequest request = new TigerHttpRequest(ApiServiceType.BRIEF);
 
     List<String> symbols = new ArrayList<>();
@@ -81,7 +81,7 @@ public class QuoteDemo {
   }
 
   @Test
-  public void stock_detail() {
+  public void getStockDetail() {
     TigerHttpRequest request = new TigerHttpRequest(ApiServiceType.STOCK_DETAIL);
 
     List<String> symbols = new ArrayList<>();
@@ -99,7 +99,7 @@ public class QuoteDemo {
   }
 
   @Test
-  public void timeline() {
+  public void getTimeline() {
     TigerHttpRequest request = new TigerHttpRequest(ApiServiceType.TIMELINE);
 
     String bizContent = QuoteParamBuilder.instance()
@@ -116,7 +116,7 @@ public class QuoteDemo {
   }
 
   @Test
-  public void hour_trading_timeline() {
+  public void getHourTradingTimeline() {
     TigerHttpRequest request = new TigerHttpRequest(ApiServiceType.HOUR_TRADING_TIMELINE);
 
     String bizContent = QuoteParamBuilder.instance()
@@ -132,7 +132,7 @@ public class QuoteDemo {
   }
 
   @Test
-  public void kline() {
+  public void getKline() {
     TigerHttpRequest request = new TigerHttpRequest(ApiServiceType.KLINE);
 
     String bizContent = QuoteParamBuilder.instance()
@@ -150,7 +150,7 @@ public class QuoteDemo {
   }
 
   @Test
-  public void trade_tick() {
+  public void getTradeTick() {
     TigerHttpRequest request = new TigerHttpRequest(ApiServiceType.TRADE_TICK);
 
     List<String> symbols = new ArrayList<>();

@@ -30,9 +30,9 @@ import java.util.Arrays;
 import java.util.List;
 import org.junit.Test;
 
-import static com.tigerbrokers.stock.openapi.demo.DemoConstants.serverUrl;
-import static com.tigerbrokers.stock.openapi.demo.DemoConstants.tigerId;
-import static com.tigerbrokers.stock.openapi.demo.DemoConstants.yourPrivateKey;
+import static com.tigerbrokers.stock.openapi.demo.Config.serverUrl;
+import static com.tigerbrokers.stock.openapi.demo.Config.tigerId;
+import static com.tigerbrokers.stock.openapi.demo.Config.yourPrivateKey;
 
 /**
  * Description:
@@ -43,7 +43,7 @@ public class QuoteV2Demo {
   private static TigerHttpClient client = new TigerHttpClient(serverUrl, tigerId, yourPrivateKey);
 
   @Test
-  public void market_state() {
+  public void getMarketState() {
     QuoteMarketResponse response = client.execute(QuoteMarketRequest.newRequest(Market.US));
     if (response.isSuccess()) {
       System.out.println(Arrays.toString(response.getMarketItems().toArray()));
@@ -53,7 +53,7 @@ public class QuoteV2Demo {
   }
 
   @Test
-  public void all_symbols() {
+  public void getAllSymbols() {
     QuoteSymbolResponse response = client.execute(QuoteSymbolRequest.newRequest(Market.US));
     if (response.isSuccess()) {
       System.out.println(Arrays.toString(response.getSymbols().toArray()));
@@ -63,7 +63,7 @@ public class QuoteV2Demo {
   }
 
   @Test
-  public void all_symbol_names() {
+  public void getAllSymbolNames() {
     QuoteSymbolNameResponse response = client.execute(QuoteSymbolNameRequest.newRequest(Market.US));
     if (response.isSuccess()) {
       System.out.println(Arrays.toString(response.getSymbolNameItems().toArray()));
@@ -73,7 +73,7 @@ public class QuoteV2Demo {
   }
 
   @Test
-  public void kline() {
+  public void getKline() {
     List<String> symbols = new ArrayList<>();
     symbols.add("AAPL");
     QuoteKlineResponse response =
@@ -88,7 +88,7 @@ public class QuoteV2Demo {
   }
 
   @Test
-  public void quote_real_time() {
+  public void getQuoteRealtime() {
     List<String> symbols = new ArrayList<>();
     symbols.add("AAPL");
     QuoteRealTimeQuoteResponse response = client.execute(QuoteRealTimeQuoteRequest.newRequest(symbols));
@@ -100,7 +100,7 @@ public class QuoteV2Demo {
   }
 
   @Test
-  public void trade_tick() {
+  public void getTradeTick() {
     List<String> symbols = new ArrayList<>();
     symbols.add("AAPL");
     QuoteTradeTickResponse response = client.execute(QuoteTradeTickRequest.newRequest(symbols));
@@ -112,7 +112,7 @@ public class QuoteV2Demo {
   }
 
   @Test
-  public void time_line() {
+  public void getTimeline() {
     List<String> symbols = new ArrayList<>();
     symbols.add("AAPL");
     QuoteTimelineResponse response =
@@ -125,7 +125,7 @@ public class QuoteV2Demo {
   }
 
   @Test
-  public void quote_contract() {
+  public void getQuoteContract() {
     List<String> symbols = new ArrayList<>();
     symbols.add("AAPL");
     QuoteContractResponse response = client.execute(QuoteContractRequest.newRequest(symbols, SecType.WAR));
@@ -137,7 +137,7 @@ public class QuoteV2Demo {
   }
 
   @Test
-  public void quote_shortable_stocks() {
+  public void getQuoteShortableStocks() {
     List<String> symbols = new ArrayList<>();
     symbols.add("AAPL");
     QuoteShortableStockResponse response = client.execute(QuoteShortableStockRequest.newRequest(symbols));
@@ -149,7 +149,7 @@ public class QuoteV2Demo {
   }
 
   @Test
-  public void quote_stock_trade() {
+  public void getQuoteStockTrade() {
     List<String> symbols = new ArrayList<>();
     symbols.add("00700");
     symbols.add("00810");

@@ -9,9 +9,9 @@ import java.util.HashSet;
 import java.util.Set;
 import org.junit.Test;
 
-import static com.tigerbrokers.stock.openapi.demo.DemoConstants.tigerId;
-import static com.tigerbrokers.stock.openapi.demo.DemoConstants.webSocketServerUrl;
-import static com.tigerbrokers.stock.openapi.demo.DemoConstants.yourPrivateKey;
+import static com.tigerbrokers.stock.openapi.demo.Config.tigerId;
+import static com.tigerbrokers.stock.openapi.demo.Config.webSocketServerUrl;
+import static com.tigerbrokers.stock.openapi.demo.Config.yourPrivateKey;
 
 /**
  * Description:
